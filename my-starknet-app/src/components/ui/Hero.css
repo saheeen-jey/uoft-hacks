@@ -1,0 +1,7 @@
+.container {
+    background-image: url(https://www.photocontestinsider.com/wp-content/uploads/2017/02/LYINBDMWER.jpg);
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
