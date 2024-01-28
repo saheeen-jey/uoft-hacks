@@ -55,10 +55,10 @@ export default function Home() {
 
     return (
         <div className="app w-full h-full flex flex-col scroll-smooth">
-            <div className="hero h-[100vh] scroll-smooth ">
-                <header className="bg-slate-900 border-[#141B41] border-[1px]  text-white p-4 text-center sticky ">
-                    <h1 className='text-3xl'>Timecapsule.tech</h1>
-                    <nav className="flex justify-center mt-4">
+        <div className="hero h-[100vh] scroll-smooth ">
+          <header className="bg-slate-900 border-[#141B41] border-[1px] text-white p-4 text-center sticky">
+            <h1 className='text-4xl font-bold'>Timecapsule.tech</h1>
+            <nav className="flex justify-center mt-4">
                         <a href="/" className=" scroll-smooth text-white no-underline hover:bg-gray-700 px-4 py-2 rounded transition duration-300">Home</a>
                         <a href="#upload" className=" scroll-smooth text-white no-underline hover:bg-gray-700 px-4 py-2 rounded transition duration-300">Upload</a>
                         <a href="#view" className="text-white no-underline hover:bg-gray-700 px-4 py-2 rounded transition duration-300">View</a>
@@ -71,18 +71,18 @@ export default function Home() {
                     <p className="text-lg m-8 text-white">Organize, share, and cherish your photos with the power of <a className="underline hover:bg-gray-50 hover:text-black transition duration-300" href="https://book.starknet.io/">Starknet</a> blockchain.</p>
 
                     <div className=''>
-                        <div className="h-[600px] flex flex-wrap justify-center overflow-hidden">
+                        <div className="w-full h-[600px] flex flex-wrap justify-center overflow-hidden">
                             {[...Array(50)].map((_, i) => (
                                 <img
                                     key={i}
                                     src={generateImageSrc(i === randomNum ? randomNum + 1 : i)}
-                                    className='inline'
+                                    className='inline m-3'
                                     alt={`Random Image ${i}`}
                                 />
                             ))}
 
                         </div>
-                        <a href="#upload" className="py-3 top-[calc(66%-2.5rem)] left-[calc(50%-8.25rem)]  absolute    border-2 cta-button px-6 my-4 text-lg text-white no-underline bg-green-500 rounded transition duration-300 hover:bg-green-600"><WalletBar></WalletBar></a>
+                        <a href="#upload" className="py-6 top-[calc(66%-2.5rem)] left-[calc(50%-8.25rem)]  absolute    border-1 cta-button px-10 my-4 text-lg text-white no-underline bg-slate-950 rounded transition duration-300 hover:bg-blue-800"><WalletBar></WalletBar></a>
                     </div>
                 </div>
             </div>
