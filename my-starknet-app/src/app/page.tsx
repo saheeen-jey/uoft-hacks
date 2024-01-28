@@ -3,10 +3,29 @@ import WalletBar from "@/components/WalletBar";
 import Hero from "../components/ui/Hero";
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import dynamic from "next/dynamic";
+import { useAccount } from "@starknet-react/core";
+
 export default function Home() {
     const numberofImages = 100;
     const [randomNum, setRandomNum] = useState(0);
     const [usedIndices, setUsedIndices] = useState([]);
+    const [file, setFile] = useState<File | undefined>();
+    const [preview, setPreview] = useState<string | ArrayBuffer | undefined>();
+    const account = useAccount();
+
+
+        const handleOnChange = (e : React.SyntheticEvent) => {
+            e.preventDefault(); 
+
+            const target = e.target as HTMLInputElement & { files: FileList };
+            
+            setFile(target.files[0]);
+            const file = new FileReader;
+      
+            console.log(target.files[0]);        
+        }
+    
     useEffect(() => {
         const interval = setInterval(() => {
             setRandomNum(Math.floor(Math.random() * numberofImages));
@@ -53,8 +72,14 @@ export default function Home() {
         <div id="upload" className="w-full h-[100vh] flex items-center justify-center relative border-[#2d2d2d] border-[1px]">
             <div className="flex justify-center items-start flex-col border-[#2d2d2d] border-[1px] rounded-sm p-12">
                 <h2 className="text-3xl flex justify-center text-white pb-5">Upload</h2>
-                <p className="text-lg my-8 text-white">Upload your photos to the blockchain.</p>
-                <input type="file" />
+                <p className="text-lg my-8 text-white">Upload your photos to the <i>goerli</i> blockchain.</p>
+                <input type="file" name="image" onChange={handleOnChange} />
+            </div>
+        </div>
+        <div id="view" className="w-full h-[100vh]">
+            <div className="flex justify-center items-start flex-col border-[#2d2d2d] border-[1px] rounded-sm p-12">
+                <h2 className="text-3xl flex justify-center text-white pb-5">View</h2>
+                <p className="text-lg my-8 text-white">View your photos from the blockchain.</p>
             </div>
         </div>
     </div>
